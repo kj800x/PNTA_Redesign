@@ -1,7 +1,7 @@
 #container {
     width:90%;
     margin:0 auto;
-    padding:5% auto 5% 10px; /*top right bottom left*/
+    padding:5% auto 5% 10px; /*top right bottom left*/ /*I love you pasta (I still do this in my head) ~Kevin~*/
     margin-bottom:20px;
     /*look at all this border work! */
     border-top-left-radius: auto;
@@ -17,22 +17,22 @@
     padding:25px;
     float:center;
     border:2px solid;
-   border-radius:10px;
+    border-radius:10px;
     width:60%
 }
 
 #header {
-   font-family: Arial, Helvetica, sans-serif;
-   width: 90%;
-   height:100px;
-   margin:0 auto;
-   padding-top:5px;
-   border:4px solid black;
-   border-bottom:0px;
-   border-top-left-radius: 10px;
-   border-top-right-radius: 10px;
-   border-bottom-left-radius: auto;
-   border-bottom-right-radius: auto;
+		font-family: Arial, Helvetica, sans-serif;
+		width: 90%;
+		height:100px;
+		margin:0 auto;
+		padding-top:5px;
+		border:4px solid black;
+		border-bottom:0px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: auto;
+		border-bottom-right-radius: auto;
 }
 
 #title {
@@ -51,16 +51,15 @@
     margin:0;
     width:auto;
     position:inherit;
-
  }
 
-  #navMenu ul {
+#navMenu ul {
     margin:0;
     padding:0;
     line-height:30px;
- }
+}
 
-  #navMenu li {
+#navMenu li {
     margin:0px 7px 0px 7px;
     padding:0;
     list-style:none;
@@ -68,46 +67,45 @@
     position:relative;
     border-radius:10px;
     border:1px solid black;
- }
+}
 
-  #navMenu ul li a {
+#navMenu ul li a {
     text-align:center; 
     height:30px;
     width:150px;
     display:block;
     text-decoration:none;
-   
- }
-
-	#navMenu ul ul {
-	position:absolute;
-	visibility:hidden;
-	top:32px;
- }
-
-  #navMenu ul li:hover ul {
-    visibility:visible;
-    z-index:9999; 
- }
-
-  #navMenu li:hover {
-   text-transform:capitalize;
- }
-
-  #navMenu ul li:hover ul li a:hover {
-    text-transform:uppercase;
- }
- #navMenu li ul li {
-margin: 0px;
 }
 
+#navMenu ul ul {
+		position:absolute;
+		visibility:hidden;
+		top:32px;
+}
+
+#navMenu ul li:hover ul {
+		visibility:visible;
+		z-index:9999; 
+}
+
+#navMenu li:hover {
+    text-transform:capitalize;
+}
+
+#navMenu ul li:hover ul li a:hover {
+    text-transform:uppercase;
+}
+
+#navMenu li ul li {
+		margin: 0px;
+}
 
 a.news:hover{
- text-transform:uppercase;
+		text-transform:uppercase;
 }
 
 #navcontainer {
-padding:3%;
+		padding:3%;
 }
 /* Fuck Menu's over and out */
 

@@ -1,71 +1,69 @@
 {% autoescape off %}<!DOCTYPE html>
 <html>
 
-<head>
-<title> {% block title %}{% endblock title %} </title>
-<link rel="stylesheet" type="text/css" href="/format/baseformat.css">
-<link rel="stylesheet" type="text/css" href="/format/oc.css">
-</head>
+	<head>
+		<title> {% block title %}PNTA{% endblock title %} </title>
+		<link rel="stylesheet" type="text/css" href="/format/baseformat.css">
+		<link rel="stylesheet" type="text/css" href="/format/oc.css">
+	</head>
 
-<body>
+	<body>
 
-<div id="header">
+		<div id="header">
 
-<div id="title">
-<h1 class="title"> <a href="form.php"> PNTA:</a> </h1> 
-<p class="subscript"> Plymouth Nuclear Technology Alliance</p>
-</div><! --- end title -->
-<div id="navContainer">
-<div id="navMenu">
-<ul> 
-       <li><a class="news" href="#">News</a></li>
+			<div id="title">
+				<h1 class="title"> <a href="form.php"> PNTA:</a> </h1> 
+				<p class="subscript"> Plymouth Nuclear Technology Alliance</p>
+			</div><! --- end title -->
+			<div id="navContainer">
+				<div id="navMenu">
+					<ul> 
+						<li><a class="news" href="#">News</a></li>
 
-        <li> <a href="#">Details</a> <!-- Shown selector -->
-    <ul> <!-- links -->
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Calender</a></li>
-    </ul> <!-- end links -->
-  </li> <!-- end first selector LI -->
+						<li> <a href="#">Details</a> <!-- Shown selector -->
+							<ul> <!-- links -->
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Contact</a></li>
+								<li><a href="#">Calender</a></li>
+							</ul> <!-- end links -->
+						</li> <!-- end first selector LI -->
 
-	 <li> <a href="#">The Team</a> <!-- Shown selector -->
-    <ul> <!-- links -->
-      <li><a href="#">Join Us!</a></li>
-      <li><a href="#">Sponsors</a></li>
-      <li><a href="#">Resources</a></li>
-      <li><a href="#">Members</a></li>
-      <li><a href="#">Photo Album</a></li>
-    </ul> <!-- end links -->
-  </li> <!-- end second selector LI -->
+						<li> <a href="#">The Team</a> <!-- Shown selector -->
+							<ul> <!-- links -->
+								<li><a href="#">Join Us!</a></li>
+								<li><a href="#">Sponsors</a></li>
+								<li><a href="#">Resources</a></li>
+								<li><a href="#">Members</a></li>
+								<li><a href="#">Photo Album</a></li>
+							</ul> <!-- end links -->
+						</li> <!-- end second selector LI -->
 
-</ul> <!-- end main UL -->
-</div> <!-- end navMenu  -->
-</div> <!-- end NavContainer -->
-</div> <!-- End header -->
-
-
-<div id="container">
-<br />
-
-{% block content %}
-<div class="content">
-<p> Yadah, Yadah, Yadah. Default content etc.
-</div><br /><br />
-<div class="content">
-Some content and shit! 
-
-Coding Experiment, we need your help!
-</div><br /><br />
-<div class="content">
-{% endblock content %}
-
-<br />
-<div id="footer">
-Insert your footer shit right here.
-</div><br />
-
-</div>
+					</ul> <!-- end main UL -->
+				</div> <!-- end navMenu  -->
+			</div> <!-- end NavContainer -->
+		</div> <!-- End header -->
 
 
-</body>
+		<div id="container">
+			<br />
+
+			{% block content %}
+			<div class="content">
+				<p> Yadah, Yadah, Yadah. Default content etc. </p>
+			</div>
+			<div class="content">
+				<p> Some content and shit! </p>
+			</div>
+			{% endblock content %}
+
+			<br />
+			<div id="footer">
+				Insert your footer shit right here.
+			</div>
+			<br />
+
+		</div>
+
+
+	</body>
 </html>
