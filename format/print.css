@@ -1,0 +1,40 @@
+#navbar {
+display: none  !important;
+}
+
+#header {
+border-bottom: 3px solid #CBCBCB !important;
+}
+
+#Twitterfeed {
+display:none !important;
+}
+
+#Admin {
+display:none !important;
+}
+
+#footer {
+border: 1px solid #CBCBCB !important;
+text-align: center !important;
+}
+
+a:link:after,
+a:visited:after {
+  content: " (" attr(href) ") ";
+  font-size: 90%;
+}
+
+.noprint {
+	display:none !important;
+}
+
+a.noprintlink:link:after,
+a.noprintlink:visited:after {
+  content: "  ";
+  font-size: 90%;
+}
+
+#TOC {
+	display: none !important;
+}

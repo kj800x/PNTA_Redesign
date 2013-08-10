@@ -1,0 +1,72 @@
+{% extends 'doc.djhtml' %}
+{% block Title %}[PNTA_Doc]: Webmasters{% endblock Title%}
+{% block Content %}
+    <div id="TOC"></div>
+        <h3> Web Masters </h3>
+          <p> So you want to be one of our Web Masters? You are in luck, because it is not that hard, and will get you introduced to web development. Mr. Bastoni has already trusted you with the username and password for webmaster access to the website (you need it to get to the Documentation). </p>
+          <h4> Your Toolbox </h4>
+            <p> You have some tools at your disposal when administering this website. </p>
+            <ul>
+              <li> You have a nice interface at <a href="/manage/">/manage/</a>. This is your greatest gift from the developers. Thank them for it. </li>
+              <li> You can use the whole internet to help you write HTML or anything else you don't know. Thank Tim Berners Lee for this. </li>
+              <li> The Web Developer. He or she may not be around, or we might not have one (they are kinda rare). Use them when you can, and they should be happy to help. They appreciate Thank You's.</li>
+            </ul>
+          <h4> The Big Rule </h4>
+            <p><b><u><i> Make sure that nothing on this website will embarrass our sponsors. </i></u></b></p>
+            <p> You've been trusted with a website. Don't mess up. </p>
+          <h4> /manage/ </h4>
+            <p> /manage/ is going to be where you do most of the things that you do. It is located at <a href="http://pnta.org/manage/">http://pnta.org/manage/</a>, and is relatively intuitive.</p>
+            <p> It is used like any other website, having forms that you can fill out and submit. I'm going to go into detail on each of the pages.</p>
+            <h5> News </h5>
+              <p> News is quite simply the website news. I'm assuming that you can figure it out after playing with it for 3 minutes. Be aware there is no undo for the delete button.</p>
+            <h5> Contact Information </h5>
+              <p> Put in anyone who might need to be contacted for management of the website in here. That includes Mr. Bastoni and any Web Developers and any (dedicated) Web Masters.</p>
+              <p> This is public information </p>
+            <h5> Team Member Information </h5>
+              <p> This is a database of the team, for record-keeping purposes.</p>
+              <p> The flow of data for this is as follows: </p>
+              <ol>
+                <li> A person signs themselves up at <a class="noprintlink" href="http://pnta.org/join.php">http://pnta.org/join.php</a> </li>
+                <li> When they hit submit, they are added to the database as "Unverified" </li>
+                <li> A Web Master must come along and verify that they are actually part of the team, and not some random spambot. (by clicking the verify button) </li>
+                <li> They are then moved to the Verified group and can be used for emails and database lookups later. </li>
+              </ol>
+              <p> This is <i>not</i> public information.</p>
+            <h5> Team Member Viewer </h5>
+              <p> This is a little something that I threw together to make it easy to use the data we collected in the Team Database. </p>
+              <p> The top box is used to filter the results. You are given words on the buttons that you can combine to create sentences such as, "Match Only The Records Where The YOG Is Less Than '2013' AND The Type Is 'Student'".</p>
+              <p> In order to create words that have arbitrary values, like '2013' or 'Student', use the button labeled "Click Here To Enter A Value". </p>
+              <p> You can send emails to the people who match your filter in the form below. </p>
+            <h5> Resources </h5>
+              <p> Resources could also be called "links" or something similar. Its pretty self explanatory. </p>
+            <h5> Sponsors </h5>
+              <p> Sponsors are very important. They give us money so that we can do awesome stuff and they need our respect. Make sure that after a database reset, our sponsors are still there. If you ever lose the sponsor data, <a onclick="document.getElementById('samplesponsortable').style.display = 'block';" href="#samplesponsortable">click here</a>. Start with that list, and ask Mr. Bastoni if there have been any additions since my time.</p>
+              <div id="samplesponsortable" style="display:none;">
+                <table border=1> <tr> <th>Name</th> <th>Description</th> <th>Link</th> <th>Logo (URL to an image)</th> <th>Order in list</th> </tr> <tr><td>Entergy</td><td>Entergy Corporation is an integrated energy company engaged primarily in electric power production and retail distribution operations. Entergy owns and operates power plants with approximately 30,000 megawatts of electric generating capacity, and it is the second-largest nuclear generator in the United States.</td> <td><a href="http://www.entergy.com">http://www.entergy.com</a></td> <td><img src="http://www.genelco-inc.com/_images/logo_Entergy.png" /></td> <td>10</td> </tr> <tr> <td>Raytheon</td> <td>Raytheon Company is a technology and innovation leader specializing in defense, homeland security and other government markets throughout the world. With a history of innovation spanning 89 years, Raytheon provides state-of-the-art electronics, mission systems integration and other capabilities in the areas of sensing; effects; and command, control, communications and intelligence systems, as well as a broad range of mission support services. Raytheon is headquartered in Waltham, Massachusetts.</td> <td><a href="http://www.raytheon.com">http://www.raytheon.com</a></td> <td> <img src="http://pnta.org/Webimages/RaytheonLogo.png" /></td> <td>8</td> </tr> <tr> <td>SolidWorks</td> <td>Dassault Systèmes SolidWorks Corp. offers complete 3D software tools that let you create, simulate, publish, and manage your data. SolidWorks products are easy to learn and use, and work together to help you design products better, faster, and more cost-effectively. The SolidWorks focus on ease-of-use allows more engineers, designers and other technology professionals than ever before to take advantage of 3D in bringing their designs to life.</td> <td><a href="http://www.solidworks.com">http://www.solidworks.com</a></td> <td> <img src="http://www.pnta.org/Webimages/Solidworks.PNG" /></td> <td>7</td> </tr> <tr> <td>Plymouth Education Foundation</td> <td>The Foundation is a non-profit corporation based upon the philosophy that public education shall be endowed through a broad-based system of community support for enhancing and augmenting educational opportunities for students and citizens in the Town of Plymouth.</td> <td><a href="http://www.plymoutheducationfoundation.org/">http://www.plymoutheducationfoundation.org/</a></td> <td> <img src="http://www.plymoutheducationfoundation.org/sites/default/files/footer-logo.png" /></td> <td>6</td> </tr> </table>
+              </div>
+            <h5> Files </h5>
+              <p> This is here for Mr. Bastoni. Let it be. </p>
+            <h5> Images </h5>
+              <p> We also have a team photo album! You can upload pictures under "File Upload" (Chose the right settings), and they will be automatically added to the photo album. </p>
+              <p> You can also have the non-web-master team members upload pictures at <a href="http://pnta.org/pictures.php">http://pnta.org/pictures.php</a>. You then need to verify the pictures on the "Manage Uploaded Pictures" page.
+          <h4> Backups </h4>
+            <p> Every September somebody should create a backup of this website. If there are no web developers, a web master must do it. <a href="/documentation/devel.php#backup">Instructions are here.</a></p>
+          <h4> Email accounts </h4>
+            <p> I think you deserve a pnta.org email account, so ask Mr. Bastoni or a web developer to set one up for you. </p>
+          <h4> Closing Remarks </h4>
+            <p> Thanks for taking the time to read this. You can manage this website now! If you need help try to find it in this order:
+            <ol>
+              <li> Use the internet. Google is your friend. (Unless its a specific problem with our website... Google won't have a clue. [Or at-least it doesn't in 2013, I don't know what Google can do now!]) </li>
+              <li> Use your fellow web masters. They are probably pretty nice (just look at them first, are they having a bad day?) </li>
+              <li> Ask the Web Developers. (Keep in mind that sometimes we don't have any). You should go to them if its a problem with the website giving you an error. </li>
+              <li> Ask Mr. Bastoni. He's a smart guy. His email should be <b>mbastoni@pnta.org</b>. Don't go to him for just anything though... He's a busy guy. </li>
+              <li> If all else fails you can email me. I'm Kevin Johnson and I will graduate (or maybe graduated) in 2015. I designed the current revision of this website (assuming that the Web Developers don't keep my name on here if they throw out the code...).
+              I'm looking to go into a career into Web Development, so I know my stuff. You can email me at <b>kevin@coolkev.com</b>. I promise to be nice!!! </li>
+            </ol>
+        
+    <script type="text/javascript">
+      document.getElementById("TOC").appendChild(createTOC());
+      showhideTOC();
+      showhideTOC();
+    </script>
+{% endblock Content %}

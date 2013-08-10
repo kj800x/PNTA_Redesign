@@ -1,0 +1,8 @@
+{% extends 'public.djhtml' %}
+{% block Title %}[ P N T A ] {{News.title}}{% endblock Title%}
+{% block Content %}
+<h2>{{News.title}}</h2>
+    <small><i>By: {{News.author}}</i></small>
+    <br /><br />
+    {{News.content}}
+{% endblock Content %}

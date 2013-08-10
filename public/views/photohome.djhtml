@@ -1,0 +1,35 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Pictures{% endblock Title%}
+{% block SpareJavascript %}
+    <style type="text/css">
+    div#photoalbumbody img {
+    
+      border: 6px solid gray;
+      border-radius:4px;
+      -moz-border-radius:4px;
+    }
+    
+    div#photoalbumbody img:hover {
+    
+      border: 6px solid #8AD459;
+    
+    }
+    
+    div#photoalbumbody {
+      width:864px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    </style>
+{% endblock SpareJavascript %}
+{% block Content %}
+    <h2>Pictures</h2>
+    
+    <div id="photoalbumbody">
+        {% for file in Files%}
+            <a href="images/{{file}}" rel="lightbox[group]"><img width="200" height="200" src="images/{{file}}" /></a>
+        {% endfor %}
+    </div>
+    
+    <h3><a href="./pictures.php">Upload</a></h3>
+{% endblock Content %}

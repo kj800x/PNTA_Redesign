@@ -1,0 +1,38 @@
+body {
+    background-color:#FCF1D9;
+}
+
+div#main {
+  background-color:#D6B85C;
+}
+
+#header {
+    background-color:#6D6D1D;
+    border: solid 3px #CBCBCB;
+    border-bottom: none;
+}
+
+#navbar {
+    background-color: #CCC;
+    border-top: solid 1px #6D6C1D;
+    border-bottom: solid 1px #6D6C1D; 
+}
+#navbar li {
+    background-color:#CCC;
+    color: black;
+}
+#navbar a {
+    color: black;
+}
+#navbar a:hover,a:active {
+    background-color: #F6F5ED;
+}
+
+#content {
+    background-color:#D6C05C;
+}
+
+#footer {
+    border-top:1px solid #F6F6ED;
+    background-color:#EDE69A;
+}

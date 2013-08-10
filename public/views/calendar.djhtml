@@ -1,0 +1,5 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Calendar{% endblock Title%}
+{% block Content %}
+    <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=pnta%40pnta.org&amp;color=%232F6309&amp;ctz=America%2FNew_York" style=" border-width:0 " width="920" height="600" frameborder="0" scrolling="no"></iframe>
+{% endblock Content %}

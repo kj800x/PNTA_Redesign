@@ -1,0 +1,49 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}PNTA: News{% endblock Title%}
+{% block Content %}
+<table border="1">
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Author
+        </th>
+        <th class="largerow">
+          Content
+        </th>
+        <th>
+          Edit
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+      <tr>
+        <form action="./NewsFunctions.php" method="Post">
+          <th>
+            <input type="text" name="title" style="width:100%;height:100%;" />
+          </th>
+          <th>
+            <input type="text" name="author" style="width:100%;height:100%;"/>
+          </th>
+          <th class="largerow" colspan="2">
+            <textarea onfocus="if(firsttime){this.value='';firsttime=false}" name="content" style="width:100%;height:100%;">Please refrain from using Heading 1</textarea>
+          </th>
+          <th>
+            <input type="hidden" name="action" value="N" />
+            <input type="submit" value="Post!" />
+          </th>
+        </form>
+      </tr>
+    {% for article in News %}
+      <tr>
+        <td>{{article.title}}</td>
+        <td>{{article.author}}</td>
+        <td class="largerow">{{article.content}}</td>
+        <td><form action="./NewsEdit.php"      method="get" >                                               <input type="hidden" name="id" value="{{article.id}}"><input type="submit" value="Edit!">  </form></td>
+        <td><form action="./NewsFunctions.php" method="post"><input type="hidden" name="action" value="D" /><input type="hidden" name="id" value="{{article.id}}"><input type="submit" value="Delete!"></form></td>
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

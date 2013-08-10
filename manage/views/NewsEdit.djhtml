@@ -1,0 +1,28 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Edit News{% endblock Title%}
+{% block Content %}
+  <form action="./NewsFunctions.php" method="POST">
+    <input type="hidden" name="action" value="E" />
+    <input type="hidden" name="id" value="{{article.id}}" />
+    <table>
+      <tr>
+        <td>
+          Author:
+        </td>
+        <td>
+          <input type="text" name="author" value="{{article.author}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Title:
+        </td>
+        <td>
+          <input type="text" name="title" value="{{article.title}}" />
+        </td>
+      </tr>
+    </table>
+    <textarea cols="70" rows="20" name="content">{{article.content}}</textarea><br />  
+    <input type="submit" value="Save" />
+  </form>
+{% endblock %}

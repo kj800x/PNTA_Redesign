@@ -1,0 +1,53 @@
+body {
+    background-color:#D9EAFC;
+}
+
+div#main {
+  background-color:#5CAED6;
+}
+
+#header {
+    background-color:#1D646D;
+    background: -moz-radial-gradient(90% 10%, ellipse cover, rgba(29, 100, 109, 1) 0%, rgba(122, 188, 255, 1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(29, 100, 109, 1)), color-stop(100%,rgba(122, 188, 255, 1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(29, 100, 109, 1) 0%,rgba(122, 188, 255, 1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(29, 100, 109, 1) 0%,rgba(122, 188, 255, 1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(29, 100, 109, 1) 0%,rgba(122, 188, 255, 1) 100%);
+    /*background: radial-gradient(center, ellipse cover, rgba(29, 100, 109, 1) 0%,rgba(122, 188, 255, 1) 100%);*/
+    border: solid 3px #CBCBCB;
+    border-bottom: none;
+}
+
+#navbar {
+    background-color: #CCC;
+    border-top: solid 1px #1D646D;
+    border-bottom: solid 1px #1D646D; 
+}
+#navbar li {
+    background-color:#CCC;
+    color: black;
+}
+#navbar a {
+    color: black;
+}
+
+a:active {
+  background-color: #C6E7F5;
+}
+
+a {
+	border-radius: 5px;
+}
+
+#navbar a:hover, #navbar a:active {
+    background-color: #F6F6ED;
+}
+
+#content {
+    background-color:#5CAED6;
+}
+
+#footer {
+    border-top:1px solid #E0E0DC;
+    background-color:#9AD2ED;
+}

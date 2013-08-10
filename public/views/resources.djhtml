@@ -1,0 +1,10 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Resources{% endblock Title%}
+{% block Content %}
+    <!-- Switch this to some javascript search thing -->
+    {% for resource in Resources %}
+          <h3><a href="{{resource.url}}">{{resource.name}}</a></h3>
+          <p>{{resource.description}}</p>
+          <br />
+    {% endfor %}
+{% endblock Content %}

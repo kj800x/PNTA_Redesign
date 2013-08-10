@@ -1,0 +1,51 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Edit Sponsor{% endblock Title%}
+{% block Content %}
+<form action="./SponsorsFunctions.php" method="POST">
+    <input type="hidden" name="action" value="E" />
+    <input type="hidden" name="id" value="{{sponsor.id}}" />
+    <table>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          <input type="text" name="name" value="{{sponsor.name}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Description:
+        </td>
+        <td>
+          <input type="text" name="description" value="{{sponsor.description}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          URL:
+        </td>
+        <td>
+          <input type="text" name="url" value="{{sponsor.url}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Order in List:
+        </td>
+        <td>
+          <input type="text" name="order_in_list" value="{{sponsor.order_in_list}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Logo:
+        </td>
+        <td>
+          <input type="text" name="logo" value="{{sponsor.logo}}" />
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Save" />
+  </form>
+{% endblock %}

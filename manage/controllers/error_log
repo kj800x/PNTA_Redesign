@@ -1,0 +1,15 @@
+[07-Nov-2012 03:55:31 UTC] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/pnta/public_html/include/functions.php on line 143
+[07-Nov-2012 04:53:44 UTC] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The for tag cannot iterate over the value: ' in /home/pnta/public_html/include/h2o/h2o/tags.php:137
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/nodes.php(27): For_Tag->render(Object(H2o_Context), Object(StreamWriter))
+#1 /home/pnta/public_html/include/h2o/h2o/tags.php(214): NodeList->render(Object(H2o_Context), Object(StreamWriter))
+#2 /home/pnta/public_html/include/h2o/h2o/tags.php(214): Block_Tag->render(Object(H2o_Context), Object(StreamWriter))
+#3 /home/pnta/public_html/include/h2o/h2o/tags.php(214): Block_Tag->render(Object(H2o_Context), Object(StreamWriter))
+#4 /home/pnta/public_html/include/h2o/h2o/nodes.php(27): Block_Tag->render(Object(H2o_Context), Object(StreamWriter))
+#5 /home/pnta/public_html/include/h2o/h2o/tags.php(260): NodeList->render(Object(H2o_Context), Object(StreamWriter))
+#6 /home/pnta/public_html/include/h2o/h2o/nodes.php(27): Extends_Tag->render(Object(H2o_Context), Object(StreamWriter))
+#7 /home/pnta/public_html/i in /home/pnta/public_html/include/h2o/h2o/tags.php on line 137
+[07-Nov-2012 04:59:26 UTC] PHP Parse error:  syntax error, unexpected T_IF, expecting ';' in /home/pnta/public_html/manage/controllers/TMFunctions.php on line 9
+[19-Nov-2012 18:02:58 UTC] PHP Warning:  move_uploaded_file(../../images/test/Desert.jpg) [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in /home/pnta/public_html/manage/controllers/upload_file.php on line 36
+[19-Nov-2012 18:02:58 UTC] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpcR4Oth' to '../../images/test/Desert.jpg' in /home/pnta/public_html/manage/controllers/upload_file.php on line 36
+[19-Nov-2012 18:02:58 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pnta/public_html/manage/controllers/upload_file.php:36) in /home/pnta/public_html/manage/controllers/upload_file.php on line 39

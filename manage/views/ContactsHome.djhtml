@@ -1,0 +1,49 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Manage Contacts{% endblock Title%}
+{% block Content %}
+<table style="width:100%" border="1">
+      <tr style="width:100%">
+        <th>
+          Name
+        </th>
+        <th>
+          Role
+        </th>
+        <th>
+          Email
+        </th>
+        <th style="width:20px;">
+          Edit
+        </th>
+        <th style="width:20px;">
+          Delete
+        </th>
+      </tr>
+      <tr style="height: 120px;">
+        <form action="./ContactsFunctions.php" method="Post">
+          <th>
+            <input style="height:100%; width:100%" type="text" name="name" />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="role" />
+          </th>
+          <th colspan="2">
+            <input style="height:100%; width:100%" type="text" name="email" />
+          </th>
+          <th style="width:20px;">
+            <input type="hidden" name="action" value="N" />
+            <input type="submit" value="Post!" />
+          </th>
+        </form>
+      </tr>
+    {% for contact in Contacts %}
+      <tr>
+        <td>{{contact.name}}</td>
+        <td>{{contact.role}}</td>
+        <td>{{contact.email}}</td>
+        <td><form action="./ContactsEdit.php"      method="get" >                                               <input type="hidden" name="id" value="{{contact.id}}"><input type="submit" value="Edit!">  </form></td>
+        <td><form action="./ContactsFunctions.php" method="post"><input type="hidden" name="action" value="D" /><input type="hidden" name="id" value="{{contact.id}}"><input type="submit" value="Delete!"></form></td>
+      </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

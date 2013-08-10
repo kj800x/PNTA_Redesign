@@ -1,0 +1,3 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Manage: PNTA{% endblock Title%}
+{% block Content %}Select one of the above sections to edit the website.{% endblock %}

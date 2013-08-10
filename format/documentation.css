@@ -1,0 +1,61 @@
+#innertoc {
+  font-family: monospace;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+#innertoc .page {
+  display: block;
+}
+
+#innertoc .indent {
+  display: block;
+  padding-left:10px;
+}
+
+#innertoc #contentheader {
+  text-align: center;
+  display:block;
+}
+
+#innertoc .extraindent {
+  display: block;
+  padding-left:20px;
+}
+
+#innertoc > div {
+  border-top: 2px solid #1BA8E0;
+}
+
+#innertoc {
+  padding: 0px 10px;
+}
+
+#TOC {
+  background-color: #CBE9F5;
+}
+
+#TOC {
+  border: 3px solid #1BA8E0;
+  width: 600px;
+  margin: 0 auto;
+}
+
+h3 {
+  text-decoration: underline;
+  font-size: 30px;
+  text-align: center;
+}
+
+h4 {
+  font-size: 20px;
+  }
+  
+h5 {
+  font-size: 16px;
+  }
+  
+pre {
+background: #424219;
+color: #3DFF00;
+}

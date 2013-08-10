@@ -1,0 +1,34 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Edit Contact{% endblock Title%}
+{% block Content %}
+  <form action="./ContactsFunctions.php" method="POST">
+    <input type="hidden" name="action" value="E" />
+    <input type="hidden" name="id" value="{{contact.id}}" />
+    <table>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          <input type="text" name="name" value="{{contact.name}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Role:
+        </td>
+        <td>
+          <input type="text" name="role" value="{{contact.role}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Email:
+        </td>
+        <td>
+          <input type="text" name="email" value="{{contact.email}}" />
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Save" />
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}File Upload - PNTA{% endblock %}
+{% block SpareJavascript %}
+    <script type="text/javascript">
+		function getFileName(s) { // e.g. enter c:\docs\myimage.jpg
+			var sp = s.lastIndexOf("\\");
+			var file = s.substring(sp+1);
+			return file;
+		}
+	</script>
+{% endblock %}
+{% block Content %}
+    <form action="./upload_file.php" method="post" enctype="multipart/form-data">
+      <table style="width:100%" border="1">
+        <tr>
+          <td>
+            File:
+          </td>
+          <td>
+            <input onchange="document.getElementById('filename').value = getFileName(this.value);"  type="file" name="file" id="file" /> 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Destination Filename:
+          </td>
+          <td>
+            http://pnta.org<span id="Where">/files/</span><input id="filename" type="text" name="filename" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Type
+          </td>
+          <td>
+            <input type="radio" name="typeoffile" onclick="document.getElementById('Where').innerHTML = '/images/'" value="I"> Image </input>
+            <input type="radio" name="typeoffile" onclick="document.getElementById('Where').innerHTML = '/files/'" value="O" CHECKED> Other </input>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="Upload!"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+    FILES
+    <table border="1">
+		<tr>
+			<th>
+				Filename
+			</th>
+			<th>
+				Delete
+			</th>
+		</tr>
+		{% for file in files %}		
+        <tr>
+            <td>
+                <a class="noprintlink" href="http://www.pnta.org/files/{{file}}">http://www.pnta.org/files/{{file}}</a>
+            </td>
+            <td>
+                <form method="post" action="./DeleteFile.php">
+                    <input type="hidden" name="filename" value="{{file}}">
+                    <input type="submit" value="delete">
+                </form>
+            </td>
+        </tr>
+		{% endfor %}	
+    </table>
+    <br />
+    IMAGES, <a href="./PictureManageHome.php">Manage Here</a>
+    <table border="1">  
+		<tr>
+			<th>
+				Filename
+			</th>
+		</tr>
+        {% for file in picfiles %}
+        <tr>
+            <td>
+                <a href="http://www.pnta.org/images/{{file}}">http://www.pnta.org/images/{{file}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock Content %}

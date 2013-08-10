@@ -1,0 +1,28 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: About Us{% endblock Title%}
+{% block Content %}
+<h1> About Us: </h1>
+<p> The students who attend classes in rooms 222 and 223 celebrate learning through active involvement in the visualization, design, fabrication and documentation of significant engineering projects. In the Spring of 1994, Steve Verrochi ( Pilgrim Nuclear/Entergy Corporation), John Siever (Vice-Principal Plymouth North High School) and Michael Bastoni (Science/Technology Plymouth North High School) met to consider the educational advantages of developing a new curriculum that combined the personal and financial resources of a major US corporation, the support of an educationally progressive administrator and the talents of motivated high school students under the direction of a competent and willing teacher. </p>
+
+<p> By the following year an engineering design and fabrication facility was under development at Plymouth North High School. The greater Plymouth business community and the parents of participating students were mobilizing resources in support of the emerging educational initiatives being developed. </p>
+
+<p> In the Spring of 1995, PNTA, the Pilgrim Nuclear/Plymouth North High School Technology Alliance was born. This organization consisted of students interested in math, science, technology, language arts, digital imaging and computer animation in combination with a willingness to work hard and learn by doing. Supporting these kids were engineers FROM Pilgrim Nuclear, teachers at Plymouth North High School and dedicated administrators, parents and community business partners. The effects were synergistic, the ROI was encouraging. </p>
+
+<p> PNTA participated in the 1995 FIRST (For Inspiration and Recognition of Science and Technology) Robotics games, and earned National Rookie of the Year title. </p>
+
+<p> Over the next 5 years the evolution of the PNTA project accelerated. A new multimedia technology lab tailored specifically to the aims and objectives of the PNTA project was designed and built by the students, teachers, administrators and the Pilgrim Engineering staff. The fabrication lab was re-engineered giving PNTA the capital resources necessary to offer an in depth engineering experience. </p>
+
+<p> PNTA continued to participate in FIRST, and in 1998 Dr. Paul Allaire, CEO and Chairman of Xerox Corporation as well as Chairman of the Board of FIRST, awarded PNTA with the organizations highest award for science and technology achievement. </p>
+
+<p> The students and staff of Plymouth North High School, the Pilgrim Nuclear management team and the greater Plymouth Community began to recognize and understand the emerging paradigm shift. Simply put, the PNHS students willingness to know and learn, increased in direct proportion with the authenticity of the activities in which they were engaged. </p>
+
+<p> When students were given the opportunity to acquire and use new skills and to demonstrate their achievement, they did so with an enthusiasm and focus that had formerly been reserved for the sports programs. PNTA participants learned that students wanted intellectual involvement in challenging projects. </p>
+
+<p> Early in 1999 PNTA turned it's attentions to Electrathon Racing. Both The Plymouth North and the Plymouth South High Schools developed and campaigned a student/engineer built electric race car. The PNTA GROUP has competed in just over a dozen races in the New England region. PNTA is working to set the new high school world distance/speed record for an Electrathon Car at the New Hampshire International 1 mile oval, in the spring of 2001. </p>
+
+<p> The growing student/parent demand for authentic math, science, technology and communication programming has resulted in the development of the ALLIED TECHNOLOGY program. A program whereby participating students can schedule lab time at any period throughout the school day and after school. The inaugural project for the ALLIED TECHNOLOGY program at Plymouth North High School is intended to demonstrate the entire range of math, science, engineering and communications skills developed by PNHS students. This years project are two BATTLEBOTS, intended to compete in the 2001 BattleBots games. </p>
+
+<p> Review our site and learn about our projects. We encourage any school to consider participating in any of the projects and programs that we have discussed.</p>
+
+<p> It's now 2008...wow going on 14 years of engineering and robots at PNHS...and what do we have to show for it? ....a lot..... </p>
+{% endblock Content %}

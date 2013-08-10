@@ -1,0 +1,252 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}PNTA: Team-Viewer{% endblock Title%}
+{% block SpareJavascript %}
+    <style>
+    #Filter {
+      border: 1px solid #257522;
+      margin-bottom: 20px;
+    }
+    
+    #Filter #Expression {
+      background: #3083C7;
+    }
+    
+    #Filter #Expression .element, #Filter #Expression #base-element {
+      background: lightblue;
+      margin-right: 5px;
+    }
+    
+    #Filter #Toolbox {
+      background: #30C78A;
+      
+    }
+    
+    </style>
+    <script type="text/javascript">
+    emailformat='"`n" &lt;`e&gt;,'; 
+
+    function Member(memberid, membername, memberverified, memberhomephone, memberhouseaddress, membercellphone, memberyog, memberemail, membertype) { 
+            this.memberid            = memberid;
+            this.membername          = membername;
+            this.memberverified      = memberverified;
+            this.memberhomephone     = memberhomephone;
+            this.memberhouseaddress  = memberhouseaddress;
+            this.membercellphone     = membercellphone;
+            this.memberyog           = memberyog;
+            this.memberemail         = memberemail;
+            this.membertype          = membertype;
+    }
+    
+    function teststring(member){
+      stringresult = "";
+      elementsarray = document.getElementsByClassName("element");
+      for (elementindex=0; elementindex < elementsarray.length; elementindex++){
+        curelement = elementsarray[elementindex];
+          switch(curelement.innerHTML)
+          {
+          case "Name ":
+            stringresult += "'"+member.membername+"' ";
+            break;
+          case "Id ":
+            stringresult += member.memberid+" ";
+            break;
+          case "Verified State ":
+            stringresult += member.memberverified+" ";
+            break;
+          case "Home Phone Number ":
+            stringresult += member.memberhomephone+" ";
+            break;
+          case "House Address ":
+            stringresult += "\""+member.memberhouseaddress+"\" ";
+            break;
+          case "Cell Phone Number ":
+            stringresult += member.membercellphone+" ";
+            break;
+          case "YOG ":
+            stringresult += member.memberyog+" ";
+            break;
+          case "Email Address ":
+            stringresult += "'"+member.memberemail+"' ";
+            break;
+          case "Type ":
+            stringresult += "'"+member.membertype+"' ";
+            break;
+          case "Is ":
+            stringresult += "== ";
+            break;
+          case "Is Not ":
+            stringresult += "!= ";
+            break;
+          case "Is Empty ":
+            stringresult += "== '' ";
+            break;
+          case "Is Not Empty ":
+            stringresult += "!= '' ";
+            break;
+          case "Is Less Than ":
+            stringresult += "< ";
+            break;
+          case "Is Greater Than ":
+            stringresult += "> ";
+            break;
+          case "Is Less Than Or Equal To ":
+            stringresult += "<= ";
+            break;
+          case "Is Greater Than Or Equal To ":
+            stringresult += ">= ";
+            break;
+          case "OR The ":
+            stringresult += "|| ";
+            break;
+          case "AND The ":
+            stringresult += "&& ";
+            break;
+          default:
+            stringresult += curelement.innerHTML;
+          }
+
+      }
+      if (stringresult == ""){
+        stringresult = "true";
+      }
+      try {
+        eval(stringresult);
+      }
+      catch(err)
+      {
+        stringresult = false;
+      }
+      return (stringresult);
+    }
+    
+    function getMatchingMembersList(){
+  		var outputlist = new Array();
+    	for (memberindex in MemberList){
+    		if (eval(teststring(MemberList[memberindex]))){
+    			outputlist.push(MemberList[memberindex]);
+    		}
+    	}
+    	return outputlist;
+    }
+    
+    function refreshTable(){
+      var emailtext = "";
+      var text = "<table border=1><tr><th>Name</th><th>Id</th><th>Verified</th><th>Home Phone</th><th>House Address</th><th>Cell Phone</th><th>YOG</th><th>Email</th><th>Type of Person</th></tr>";
+      var tablefor = getMatchingMembersList();
+      for (memberindex in tablefor){
+      	text += "<tr>";
+      		text += "<td>" + tablefor[memberindex].membername + "</td>";
+      		text += "<td>" + tablefor[memberindex].memberid + "</td>";
+      		text += "<td>" + tablefor[memberindex].memberverified + "</td>";
+      		text += "<td>" + tablefor[memberindex].memberhomephone + "</td>";
+      		text += "<td>" + tablefor[memberindex].memberhouseaddress + "</td>";
+      		text += "<td>" + tablefor[memberindex].membercellphone + "</td>";
+      		text += "<td>" + tablefor[memberindex].memberyog + "</td>";
+      		text += "<td>" + tablefor[memberindex].memberemail + "</td>";
+      		text += "<td>" + tablefor[memberindex].membertype + "</td>";
+      	text += "</tr>";
+      	emailtext += '"'+tablefor[memberindex].membername+'" <'+ tablefor[memberindex].memberemail+'>, ';
+      }
+      text += '</table>';
+      document.getElementById('Result').innerHTML=text;
+      document.getElementById("emailaddressesinput").value=emailtext;
+      document.getElementById("emailaddressesspan").innerHTML=emailtext.replace(/>/g,"&gt;").replace(/</g,"&lt;");
+    }
+    MemberList = [];
+    
+    {% for member in Members %}
+      MemberList.push(new Member("{{member.id}}","{{member.name}}","{{member.verified}}","{{member.homephone}}","{{member.houseaddress}}","{{member.cellphone}}","{{member.yog}}","{{member.email}}","{{member.type}}"));
+    {% endfor %}
+    
+    
+    
+    elements_number = 0;
+    
+    function CheckBaseWords(){
+      if (elements_number > 0){
+       document.getElementById("base-element").innerHTML = "Match Only The Records Where The "
+      }
+      else {
+       document.getElementById("base-element").innerHTML = "Match All Records"
+      }
+    }
+    
+    function AddElement(text){
+      elements_number++;
+      var childElement = document.createElement("span");
+      childElement.innerHTML = text + " "; //The space lets the line break. Otherwise, if you put a bunch of single word elements, it would just flow off to the right.
+      childElement.className = "element";
+      document.getElementById("Expression").appendChild(childElement);
+      CheckBaseWords();
+      refreshTable();
+    }
+    
+    function RemoveElement(){
+      var expression = document.getElementById("Expression");
+      if (expression.lastChild.id != "base-element"){
+        elements_number--;
+        expression.removeChild(expression.lastChild)
+      }
+      CheckBaseWords();
+      refreshTable();
+    }
+    
+    
+    
+    </script>
+{% endblock %}
+{% block Content %}
+    <div id="Filter">
+      <div id="Expression"><span id="base-element"> Match All Records</span></div>
+      <div id="Toolbox" class="noprint">
+        <button onclick="AddElement(this.innerHTML)">Name</button>
+        <button onclick="AddElement(this.innerHTML)">Id</button>
+        <button onclick="AddElement(this.innerHTML)">Verified State</button>
+        <button onclick="AddElement(this.innerHTML)">Home Phone Number</button>
+        <button onclick="AddElement(this.innerHTML)">House Address</button>
+        <button onclick="AddElement(this.innerHTML)">Cell Phone Number</button>
+        <button onclick="AddElement(this.innerHTML)">YOG</button>
+        <button onclick="AddElement(this.innerHTML)">Email Address</button>
+        <button onclick="AddElement(this.innerHTML)">Type</button>
+        
+        <br />
+        
+        <button onclick="AddElement(this.innerHTML)">Is</button>
+        <button onclick="AddElement(this.innerHTML)">Is Not</button>
+        <button onclick="AddElement(this.innerHTML)">Is Empty</button>
+        <button onclick="AddElement(this.innerHTML)">Is Not Empty</button>
+        <button onclick="AddElement(this.innerHTML)">Is Less Than</button>
+        <button onclick="AddElement(this.innerHTML)">Is Less Than Or Equal To</button>
+        <button onclick="AddElement(this.innerHTML)">Is Greater Than</button>
+        <button onclick="AddElement(this.innerHTML)">Is Greater Than Or Equal To</button>
+        <!--<button onclick="AddElement(this.innerHTML)">Starts With</button>
+        <button onclick="AddElement(this.innerHTML)">Ends With</button>
+        <button onclick="AddElement(this.innerHTML)">Contains</button>-->
+        
+        <br />
+        
+        <button onclick="AddElement(this.innerHTML)">OR The</button>
+        <button onclick="AddElement(this.innerHTML)">AND The</button>
+        <button onclick="AddElement('\'' + prompt('What value?') + '\'')">Click Here To Enter A Value</button>
+        <button onclick="RemoveElement();">BACKSPACE</button>
+      </div>
+    </div>
+    <div id="Result"></div>
+    <div class="noprint" id="Email">
+      <hr />
+      <h3> Send an email to matching Team Members </h3>
+      <form method="POST" action="./Email.php">
+        FROM: <br />pnta@pnta.org <br /><br />
+        REPLY-TO: <br /><input type="text" name="REPLYTO"><br /><br />
+        TO: <br /><input type="hidden" name="TO" id="emailaddressesinput" /><span id="emailaddressesspan"></span><br /><br />
+        SUBJECT: <br /><input type="text" name="SUBJECT"><br /><br />
+        CONTENT: <br /><textarea name="CONTENT"></textarea><br /><br />
+        <input type="submit" value="SEND" />
+      </form>
+    </div>
+    <script type="text/javascript">
+    
+    	refreshTable();
+    
+    </script>
+{% endblock %}

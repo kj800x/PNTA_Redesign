@@ -1,0 +1,27 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Sponsors{% endblock Title%}
+{% block Content %}
+    <div>
+    <!-- Switch this to some javascript search thing -->
+    
+    <h2 style="text-align:center;">We would like to thank the following organizations and people for supporting us:</h2>
+    <br />
+    <hr />
+    {% for sponsor in Sponsors %}
+          <div data-avb="Sponsors">
+            {% if sponsor.logo %}
+                <img src="{{sponsor.logo}}" alt="" style="width:200px;float:right;" />
+            {% endif %}  
+            {% if sponsor.url %}
+                <h3><a href="{{sponsor.url}}">{{sponsor.name}}</a></h3>
+            {% else %}
+                <h3>{{sponsor.name}}</h3>
+            {% endif %}
+            <p>{{sponsor.description}}</p>
+            <br />
+          </div>
+          <hr />
+    {% endfor %}
+    <h5> We belive that the use of logos on this page is a gesture of gratitude and we would be happy to remove your logo if you so wish. If you would like your logo removed, please email kjohnson [at] pnta [dot] org</h5>
+    </div>
+{% endblock Content %}

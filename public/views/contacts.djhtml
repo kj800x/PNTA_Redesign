@@ -1,0 +1,7 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Contacts{% endblock Title%}
+{% block Content %}
+    {% for contact in Contacts %}
+          <b>{{contact.name}}</b>, the <i>{{contact.role}}</i> can be reached at: {{contact.email}}<br /><br />
+    {% endfor %}
+{% endblock Content %}

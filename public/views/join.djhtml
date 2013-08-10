@@ -1,0 +1,48 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Join{% endblock Title%}
+{% block Content %}
+    <h1> Register to be a team member </h1>
+
+    <h3>ALL STUDENTS: Please register on <a href="https://my.usfirst.org/stims/site.lasso">STIMS</a> if you have not done so (we are team 23), before completing this.</h3>
+    <h3>Please note, even if you have registered on STIMS in past years, you may sign in with your old account, but you have to re-apply to team 23. </h3>
+    
+    <form method="POST" onsubmit="return isformvalid(this)" action="/joinpost.php" >
+    
+    Your Name: <br />
+    <input type="text" name="name" class="required" required="required" /><br />
+    <br />
+    
+    Your Cell Phone Number: <br />
+    <input type="text" name="cellphone" class="required phonenumber" id="addcell" required="required" /><br />
+    <br />
+    
+    Your Home Phone Number: <br />
+    <input type="text" name="homephone" class="required phonenumber" id="addhome" required="required" /><br />
+    <br />
+    
+    Your House Address: <br />
+    <input type="text" name="houseaddress" class="required" required="required" /><br />
+    <br />
+    
+    Your YOG (Year Of Graduation) (STUDENTS AND ALUMNI ONLY): <br />
+    <input type="text" name="yog" class="required fourdigits" id="YOG" required="required" /><br />
+    <br />
+    
+    Your Email: <br />
+    <input type="text" name="email" class="required email" required="required" /><br />
+    <br />
+    
+    Choose One: <br />    
+      <select name="type" required="required" class="required" onchange="if (this.value != 'Student' && this.value != 'Alumni'){document.getElementById('YOG').disabled = true;document.getElementById('YOG').value = '0000'}else{document.getElementById('YOG').disabled = false;document.getElementById('YOG').value = ''}">
+        <option value="Student" {% if member.type == 'Student' %}SELECTED{% endif %}>Student</option>
+        <option value="Parent"  {% if member.type == 'Parent' %}SELECTED{% endif %}>Parent</option>
+        <option value="Teacher" {% if member.type == 'Teacher' %}SELECTED{% endif %}>Teacher</option>
+        <option value="Other"   {% if member.type == 'Other' %}SELECTED{% endif %}>Other</option>
+        <option value="Alumni"  {% if member.type == 'Alumni' %}SELECTED{% endif %}>Alumni</option>
+      </select><br />
+    <br />
+    
+    <input type="submit" />
+    
+    </form>
+{% endblock Content %}

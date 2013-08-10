@@ -1,0 +1,38 @@
+body {
+    background-color:#D9FCE2;
+}
+
+div#main {
+  background-color:#5CD67D;
+}
+
+#header {
+    background-color:#1D6D2C;
+    border: solid 3px #CBCBCB;
+    border-bottom: none;
+}
+
+#navbar {
+    background-color: #CCC;
+    border-top: solid 1px #206D1D;
+    border-bottom: solid 1px #206D1D; 
+}
+#navbar li {
+    background-color:#CCC;
+    color: black;
+}
+#navbar a {
+    color: black;
+}
+#navbar a:hover,a:active {
+    background-color: #EDF6EF;
+}
+
+#content {
+    background-color:#5CD67D;
+}
+
+#footer {
+    border-top:1px solid #DCE0DC;
+    background-color:#9AEDAB;
+}

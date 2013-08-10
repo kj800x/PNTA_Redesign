@@ -1,0 +1,11 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Team{% endblock Title%}
+{% block Content %}
+    <!-- Switch this to some javascript search thing -->
+    <ul>
+    {% for member in Team %}
+          <li>{{member.name}}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock Content %}

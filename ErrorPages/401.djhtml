@@ -1,0 +1,12 @@
+{% extends 'error.djhtml' %}
+{% block Title %}401 - Bad Credentials{% endblock Title%}
+{% block Content %}
+	<h1>401</h1>
+	<h1>Four - Oh - One</h1>
+	<h1>WRONG CREDENTIALS!</h1>
+	<h4>Oh No!</h4>
+	<img src="http://pnta.org/webimages/jenafuhspinsfaster.gif" />
+	<h1>&nbsp;</h1>
+	<h3>Check yourself, are you Dom? If so, then it's just your computer being weird.</h3>
+	<h3>Otherwise, you actually typed the credentials wrong, Double Check, and try again!!</h3>
+{% endblock Content %}

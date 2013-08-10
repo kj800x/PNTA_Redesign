@@ -1,0 +1,156 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}PNTA: Team{% endblock Title%}
+{% block Content %}
+    <style type="text/css">
+    .sectionheader {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: block;
+    border: 4px dashed black;
+    background-color: forestgreen;
+    }
+    </style>
+
+    <a href="./TMView.php" class="noprint"><div style="text-align:center;background-color:#F99;width:100%;height:30px;">Interactive Data Viewer And Email Sender</div></a>
+    <span class="sectionheader"> UnVerified Members </span>
+    <table style="width:100%" border="1">
+      <tr style="width:100%">
+        <th>
+          Name
+        </th>
+        <th>
+          Verified
+        </th>
+        <th>
+          Home Phone
+        </th>
+        <th>
+          House Address
+        </th>
+        <th>
+          Cell Phone
+        </th>
+        <th>
+          Year Of Graduation
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Type
+        </th>
+        <th style="width:20px;">
+          Verify
+        </th>
+        <th style="width:20px;">
+          Edit
+        </th>
+        <th style="width:20px;">
+          Delete
+        </th>
+      </tr>
+      {% for member in UnverifiedMembers %}
+        <td>{{member.name}}</td>
+        <td>{{member.verified}}</td>
+        <td>{{member.homephone}}</td>
+        <td>{{member.houseaddress}}</td>
+        <td>{{member.cellphone}}</td>
+        <td>{{member.yog}}</td>
+        <td>{{member.email}}</td>
+        <td>{{member.type}}</td>
+        <td><form action="./TMFunctions.php" method="post"><input type="hidden" name="action" value="V" /><input type="hidden" name="id" value="{{member.id}}"><input type="submit" value="Verify!"></form></td>
+        <td><form action="./TMEdit.php" method="get" ><input type="hidden" name="id" value="{{member.id}}"><input type="submit" value="Edit!"></form></td>
+        <td><form action="./TMFunctions.php" method="post"><input type="hidden" name="action" value="D" /><input type="hidden" name="id" value="{{member.id}}"><input type="submit" value="Delete!"></form></td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+    
+    <span class="sectionheader"> Verified Members </span>
+    <table style="width:100%" border="1">
+      <tr style="width:100%">
+        <th>
+          Name
+        </th>
+        <th>
+          Verified
+        </th>
+        <th>
+          Home Phone
+        </th>
+        <th>
+          House Address
+        </th>
+        <th>
+          Cell Phone
+        </th>
+        <th>
+          Year Of Graduation
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Type
+        </th>
+        <th style="width:20px;">
+          Edit
+        </th>
+        <th style="width:20px;">
+          Delete
+        </th>
+      </tr>
+      <tr style="height: 120px;">
+        <form onsubmit="document.getElementById('addcell').value = document.getElementById('addcell').value.replace(/[^\d]/gi, '');document.getElementById('addhome').value = document.getElementById('addhome').value.replace(/[^\d]/gi, '');" action="./TMFunctions.php" method="Post">
+          <th>
+            <input style="height:100%; width:100%" type="text" name="name" />
+          </th>
+          <th>
+            <input type="checkbox" name="verified" value="1" checked />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="homephone" id="addhome"  />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="houseaddress" />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="cellphone" id="addcell" />
+          </th>
+          <th>
+            <input id="YOG" style="height:100%; width:100%" type="text" name="yog" />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="email" />
+          </th>
+          <th colspan="2">
+            <select onchange="if (this.value != 'Student' && this.value != 'Alumni'){document.getElementById('YOG').disabled = true;document.getElementById('YOG').value = '0000'}else{document.getElementById('YOG').disabled = false;document.getElementById('YOG').value = ''}" name="type">
+              <option value="Student">Student</option>
+              <option value="Parent">Parent</option>
+              <option value="Teacher">Teacher</option>
+              <option value="Other">Other</option>
+              <option value="Alumni">Alumni</option>
+            </select>
+          </th>
+          <th style="width:20px;">
+            <input type="hidden" name="action" value="N" />
+            <input type="submit" value="Post!" />
+          </th>
+        </form>
+      </tr>
+        {% for member in VerifiedMembers %}
+        <td>{{member.name}}</td>
+        <td>{{member.verified}}</td>
+        <td>{{member.homephone}}</td>
+        <td>{{member.houseaddress}}</td>
+        <td>{{member.cellphone}}</td>
+        <td>{{member.yog}}</td>
+        <td>{{member.email}}</td>
+        <td>{{member.type}}</td>
+        <td><form action="./TMEdit.php" method="get" ><input type="hidden" name="id" value="{{member.id}}"><input type="submit" value="Edit!"></form></td>
+        <td><form action="./TMFunctions.php" method="post"><input type="hidden" name="action" value="D" /><input type="hidden" name="id" value="{{member.id}}"><input type="submit" value="Delete!"></form></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}

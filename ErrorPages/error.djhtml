@@ -1,0 +1,33 @@
+{% extends '../format/baseformat.djhtml' %}
+
+{% block navigation %}
+    <li><a href="/aboutus.php">About Us</a></li>
+    <li><a href="/news.php">News</a></li>
+    <li><a href="/contacts.php">Contact</a></li>
+    <li><a href="/calendar.php">Calendar</a></li>
+    <li><a href="/resources.php">Team Resources</a></li>
+    <li><a href="/sponsors.php">Team Sponsors</a></li>
+    <li>&nbsp;</li>
+    <li><a href="/photohome.php">Photo Album</a></li>
+{% endblock navigation %}
+
+{% block ColorStyleSheet %}gray{% endblock ColorStyleSheet %}
+
+{% block SetCookie %}false{% endblock SetCookie%}
+
+{% block Content %}
+    {{block.super}}
+{% endblock Content %}
+
+{% block Title %}
+    {{block.super}}
+{% endblock Title %}
+
+{% block SpareJavascript %}
+	<style>
+		#content {
+			text-align:center;
+		}
+	</style>
+    {{block.super}}
+{% endblock SpareJavascript %}

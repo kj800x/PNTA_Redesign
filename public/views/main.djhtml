@@ -1,0 +1,38 @@
+{% extends 'public.djhtml' %}
+{% block Title %}[ P N T A ]{% endblock Title%}
+{% block Content %}
+    <div style="text-align:center;width:100%">
+        <span id="result"></span>
+    </div>
+    
+    <div data-contenttype="News">
+    {% for article in News %}
+    
+        <h1>{{article.title}}</h1>
+        
+          <small><i>By: {{article.author}}</i></small>
+          
+          <br /><br />
+          
+          {{article.content}}
+          
+          <br /><br />
+          
+    {% endfor %}
+    </div>
+    
+    <script type="text/javascript">    
+var parts = window.location.search.substr(1).split("&");
+var _GET = {};
+for (var i = 0; i < parts.length; i++) {
+    var temp = parts[i].split("=");
+    _GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+}
+if(_GET["Joined"])
+{
+    document.getElementById("result").innerHTML = "Thank you for signing up to be on the team, we will keep you posted!";
+    document.getElementById("result").style.color = "black";
+    document.getElementById("result").style.background = "orange";
+}
+    </script>
+{% endblock Content %}

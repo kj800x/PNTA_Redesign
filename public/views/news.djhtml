@@ -1,0 +1,48 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: News{% endblock Title%}
+{% block SpareJavascript %}
+<script>
+    function SwapExpand(that){
+      a=that;
+      if (that.getAttribute('Expanded') == 'False')
+        {
+          that.lastChild.style.display = 'block';
+          that.setAttribute('Expanded', 'True');
+          try
+            {
+              that.childNodes[0].style['-webkit-transform'] = 'rotate(90deg)';
+              that.childNodes[1].style['-webkit-transform'] = 'rotate(90deg)';
+            }
+          catch(b){}
+        }
+      else
+        {
+          that.lastChild.style.display = 'none';
+          that.setAttribute('Expanded', 'False');
+          try{
+              that.childNodes[0].style['-webkit-transform'] = 'rotate(0deg)';
+              that.childNodes[1].style['-webkit-transform'] = 'rotate(0deg)';
+          }
+          catch(b){}
+        }
+    }
+</script>
+{% endblock SpareJavascript %}
+{% block Content %}
+    <span style="float:right;margin-right:20px;">Click to expand!</span>
+    {% for article in News %}
+          <div Expanded='False' style="cursor: pointer;" ondblclick="window.open('./permanews.php?id={{article.id}}','PNTA - {{article.Title}}')" onclick="SwapExpand(this);"><img src="/webimages/breadcrumb_arrow.gif" style="-webkit-transform:rotate(0deg)"/>
+                <b>{{article.title}}</b>
+                <br />
+                <div style="display:none;">
+                  <hr />     
+                  <h1>{{article.title}}</h1>
+                  <small><i>By: {{article.author}}</i></small>
+                  <br /><br />
+                  <div data-contenttype="News">
+                    {{article.content}}
+                  </div>
+                  <hr />
+                </div></div>{% endfor %}<br />
+{% endblock Content %}
+

@@ -1,0 +1,35 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Edit Resource{% endblock Title%}
+{% block Content %}
+<form action="./ResourcesFunctions.php" method="POST">
+    <input type="hidden" name="action" value="E" />
+    <input type="hidden" name="id" value="{{resource.id}}" />
+    <table>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          <input type="text" name="name" value="{{resource.name}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Description:
+        </td>
+        <td>
+          <input type="text" name="description" value="{{resource.description}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          URL:
+        </td>
+        <td>
+          <input type="text" name="url" value="{{resource.url}}" />
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Save" />
+  </form>
+{% endblock %}

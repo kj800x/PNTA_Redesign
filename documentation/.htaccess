@@ -1,0 +1,11 @@
+AuthUserFile /home/pnta/www/manage/.htpasswd
+AuthType Basic
+AuthName "PNTA 23"
+Require valid-user
+
+RewriteEngine on
+
+RewriteRule ^([^/]+\.(?:.)*)$ controllers/$1 [PT]
+
+RewriteRule ^$ controllers/main.php [PT]
+

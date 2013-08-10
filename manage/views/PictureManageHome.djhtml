@@ -1,0 +1,117 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Manage: PNTA.org{% endblock Title%}
+{% block Content %}
+    <h3>
+    	Have people upload photos at <a class="noprintlink"  href="http://pnta.org/pictures.php">http://pnta.org/pictures.php</a>
+    </h3>
+    <table border="1">
+    <tr>
+      <th colspan="5">Unverified</th>
+    </tr>
+		<tr>
+			<th>
+				<!--This is for the images-->
+			</th>
+			<th>
+				Filename
+			</th>
+			<th>
+				Delete
+			</th>
+			<th>
+				Verify
+			</th>
+			<th>
+				Rename
+			</th>
+		</tr>
+        {% for file in notveripicfiles %}
+            <tr>
+                <td>
+                    <img style="height:100px;width:100px;" src="http://www.pnta.org/UserSubmittedPhotos/{{file}}" />
+                </td>
+                <td>
+                    <a class="noprintlink" href="http://www.pnta.org/UserSubmittedPhotos/{{file}}">{{file}}</a>
+                </td>
+                <td>
+                    <form method="post" action="./PictureManageFunction.php" />
+                        <input type="hidden" name="filename" value="{{file}}" />
+                        <input type="hidden" name="action" value="D" />
+                        <input type="hidden" name="directory" value="Temp" />
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="./PictureManageFunction.php" />
+                        <input type="hidden" name="filename" value="{{file}}" />
+                        <input type="hidden" name="action" value="M" />
+                        <input type="hidden" name="directory" value="Temp" />
+                        <input type="submit" value="Verify" />
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="./PictureManageFunction.php">
+                        <input type="hidden" name="filename"  value="{{file}}" />
+                        <lable>New File Name:</lable><input type="text" name="newname" value="{{file}}" />
+                        <input type="hidden" name="action"    value="R" />
+                        <input type="hidden" name="directory" value="Temp" />
+                        <input type="submit" value="Rename" />
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+  </table>
+    <hr />
+  <table border="1">
+    <tr>
+      <th colspan="5">Verified</th>
+    </tr>
+		<tr>
+			<th>
+				<!--This is for the images-->
+			</th>
+			<th>
+				Filename
+			</th>
+			<th>
+				Delete
+			</th>
+			<th>
+				Rename
+			</th>
+			<th>
+				Full URL
+			</th>
+		</tr>
+		    {% for file in veripicfiles %}
+                <tr>
+                    <td>
+                        <img style="height:100px;width:100px;" src="http://www.pnta.org/images/{{file}}" />
+                    </td>
+                    <td>
+                        <a class="noprintlink" href="http://www.pnta.org/images/{{file}}">{{file}}</a>
+                    </td>
+                    <td>
+                        <form method="post" action="./PictureManageFunction.php">
+                            <input type="hidden" name="filename" value="{{file}}">
+                            <input type="hidden" name="action" value="D">
+                            <input type="hidden" name="directory" value="Images">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="./PictureManageFunction.php">
+                            <input type="hidden" name="filename"  value="{{file}}" />
+                            <lable>New File Name:</lable><input type="text" name="newname" value="{{file}}" />
+                            <input type="hidden" name="action"    value="R" />
+                            <input type="hidden" name="directory" value="Images" />
+                            <input type="submit" value="Rename" />
+                        </form>
+                    </td>
+                    <td>
+                        http://pnta.org/images/{{file}}
+                    </td>
+                </tr>
+			{% endfor %}
+    </table>
+{% endblock %}

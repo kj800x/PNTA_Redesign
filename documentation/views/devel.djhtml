@@ -1,0 +1,108 @@
+{% extends 'doc.djhtml' %}
+{% block Title %}[PNTA_Doc]: Developers{% endblock Title%}
+{% block Content %}
+    <div id="TOC"></div>
+        <h3> Web Developers </h3>
+          <p> Nice to meet you. I'm Kevin Johnson and I'm writing from December 30, 2012. How has the world been? What awesome technological advances have been made? Back on track, I'm writing this document so that you can have help understanding the code I wrote. (Although it is so neat, I bet you don't even need it)</p>
+          <p> If someone ever messes up the code so bad that you want to cry, you can revert to the version I'm leaving, from many different places. It should be saved in <a href="http://pnta.org/documentation/SavedWebsite12-20-2012.zip">http://pnta.org/documentation/SavedWebsite12-20-2012.zip</a>. It will also be saved in a Box.com folder that I will link to from here, when I can. You can also email me &lt;kevin@coolkev.com&gt; and I might be able to find you a copy of it. </p>
+          <h4> Preamble </h4>
+            <p> You should be able to read this page all the way through and have a general feel of the website, but it is recommended that you attempt to interpret the source on your own, and to check this page if you are confused about anything (Thats why we have a Table of Contents!). 
+            <p> Before starting out on this web site, you should meet all of the following requirements: </p>
+            <ul>
+              <li> Know about FTP </li>
+              <li> Know HTML </li>
+              <li> Have enough patience to read through my ramblings in the documentation </li>
+              <li> Know a little CSS </li>
+              <li> Know a little Javascript </li>
+              <li> Know MySQL </li>
+              <li> Know some PHP (Although I don't like PHP so I use a nice framework on top of it, called <a href="http://www.h2o-template.org/">H2O</a>) </li>
+              <li> It helps if you know a little Django because H2O borrows lots of ideas from Django </li>
+              <li> It helps if you know a little Python because Django is designed to be made on Python, so it spirals up and H2O is very pythonic. (And you haven't lived yet if you don't know Python)
+              <li> It helps if you know a little about *nix because this is hosted on a linux server, you might need it... </li>
+            </ul>
+            <p>... if you can't agree with those "Know" statements, you might not be able to follow the rest of this document, because I will assume that you have those "Know" skills. </p>
+            <p> Also, you will edit the source code over FTP like any other normal website. I feel it would be insecure to post the FTP login on here (I know that this page is password protected anyways). You can get it from Mr. Bastoni. <br />
+            The web-server starts in the folder "www". This is where all the code starts, and when I talk about the file structure I'm talking about this folder only. </p>
+          <h4> File Tree (Structure) </h4>
+            <p> I think that the best place to start is with the file structure. </p>
+          <h4> Following A Request </h4>
+            <p> For some requests, such as files or images, the request follows the tree (file structure) exactly. Example, a web client requests "/webimages/Raytheon.img". The server will return the file "Raytheon.img" that's inside of the folder "webimages". 
+            <p> There are three folders who's requests don't follow the tree. </p>
+            <ul>
+              <li> Any request that doesn't have a folder, such as "/news.php", "/contacts.php" or "/".</li>
+              <li> Any request in the folder "/manage/", such as "/manage/NewsHome.php", "/manage/ContactsHome.php" or "/manage/".</li>
+              <li> Any request in the folder "/documentation/", such as "/documentation/masters.php", "/documentation/devel.php" or "/documentation/".</li>
+              <li> (Also, error pages are handled in a similar manner inside of /ErrorPages/).</li>
+            </ul>
+            <p> For these requests, they get mapped to the folders "/public/", "/manage/", and "/documentation/" respectively. (any URL's that end with a "/" get treated like they ended in "/main.php") Then they get routed to the PHP file "/{FOLDER}/controllers/{FILENAME}.php".</p>
+            <p> I do this for two reasons. </p>
+            <ol>
+              <li> Redirect traffic to the proper folders so I don't have to leave PHP files around everywhere in the tree (using apache's <a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">mod_rewrite</a>). </li>
+              <li> Break it into two logical folders for the two types of files that helps build the webpage. This is for H2O's sake. </li>
+            </ol>
+            <p> To follow one of these requests, check the file in /controllers/. This is standard PHP. This will do any processing or database interaction that needs to be done to make the page. It will then pass the data on to the file in /views/. </p>
+            <p> The file in /views/ is where you might get confused. It uses the <a href="https://docs.djangoproject.com/en/1.4/topics/templates/">Django Templating Syntax</a> (Read that link right now!). H2O is actually a library that reads the file that was written in Django syntax, fills in the blanks, and returns it to the web browser. </p>
+            <h5> An Example </h5>
+              <p> Here is an example of a complex request. Let's request the file "/manage/NewsHome.php". </p>
+              <ol>
+                <li> The server receives the request and maps it (using <a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">mod_rewrite</a>) to the PHP file "/manage/controllers/NewsHome.php".</li>
+                <li> The server runs the PHP file. </li> 
+                <ol>
+                  <li> First it gets the required libraries: <pre>include "../../include/allrequirements.php";</pre> </li>
+                  <li> Then it gets the news from the database (Those two functions are defined in "/include/functions.php"): <pre>$temp = MySqlQueryToArray(GetNews(0));</pre> </li>
+                  <li> Then it formats the data:
+<pre>
+$N = Array();
+
+foreach ($temp as $value){
+    $value["content"] = nl2br($value["content"]); 
+    $N[] = $value;
+}
+</pre>
+                  <li> Then it creates a H2O object that it will use to render out the format of the webpage. Notice the argument to h2o, it's the Django-syntax file: <pre>$h2o = new h2o('../views/NewsHome.djhtml');</pre>
+                  <li> Then it gives the H2O object the data, in the form of an array passed to the render function: <pre>echo $h2o->render(array('News'=>$N));</pre>
+                </ol>
+                <li> Then H2O processes the file using Django's Template Syntax (which you should have read about earlier).
+                <ol>
+                  <li> The first line should tell you that we are going to use TEMPLATE INHERITANCE! <pre>&#123;% extends 'manage.djhtml' %}</pre></li>
+                  That means, "Fill out this file, and then put all these block into their spaces in manage.djhtml"</li>
+                  
+                  <li> The next line is an example of a block: <pre>&#123;% block Title %}PNTA: News&#123;% endblock Title%}</pre>
+                  This a block that we can plug into another block in the parent template (what we "extend", manage.djhtml).</li>
+                  
+                  <li> Jump ahead to the lines that start <pre>&#123;% for article in News %} ... &#123;% endfor %}</pre>
+                  This means that we were given a variable "News" (remember this: "...render(array('News'=>$N));") and it was an array. The "for" tag says that we will take the code between the "for" tag and "endfor" tag and run it for each of the elements in the array, each time the variable "article" will be the current element in the array.</li>
+                </ol>
+                <li> Then we go back to the file we "extend", manage.djhtml, and run that file. I won't go line by line for this file, but it extends another file, "baseformat.djtml" (hint: Any page with our layout extends from this file). Any &#123;&#123;block.super}}'s get replaced by whatever the previous file defined for that block. manage.djhtml is a intermediate file that determines some global properties for the manage section. It defines the color, and the contents of the nav-bar, among other things. </li>
+                <li> Once all of H2O's formatting is done, we return the final result to the web browser, and we've finished! </li>
+              </ol>
+          <h4> File Tree (Structure) </h4>
+            <p> I think that the best place to start is with the file structure. </p>
+
+
+
+
+
+        <h3> TODO </h3>
+        <h4> Write about Django and how we stole some ideas from that (its a free project, relax Mr. B) </h4>
+        <h4> Write about my javascript library and how I made all future kids' lives easier </h4>
+        <h4> .noprintlink and .noprint </h4>
+        <h4> Write about cookie.js </h4>
+        <h4> Write about the TOC script used on the doc pages </h4>
+        <h4> Write about functions.php </h4>
+        <h4> Write about the TREE </h4>
+        <h4> Write about error pages </h4>
+        <h4> Implement The Photo Library </h4>
+        <h4> Write about the Email System </h4>
+        <h4> Write about tinyMC </h4>
+        <h4> Write about making backups of the database in September</h4>
+        <h4> Write about how I split the format.css and the colors.css </h4>
+        <h4> Make it so that backups don't have to be done every year </h4>
+        <h4 id="backup"> Write about backup procedures </h4>
+        
+    <script type="text/javascript">
+      document.getElementById("TOC").appendChild(createTOC());
+      showhideTOC();
+      showhideTOC();
+    </script>
+{% endblock Content %}

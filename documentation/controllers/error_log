@@ -1,0 +1,90 @@
+[31-Dec-2012 01:42:42 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'TemplateNotFound - Looked for template: doc.djhtmsl' in /home/pnta/public_html/include/h2o/h2o/loaders.php:71
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/loaders.php(45): H2o_File_Loader->get_template_path(Array, 'doc.djhtmsl')
+#1 /home/pnta/public_html/include/h2o/h2o.php(94): H2o_File_Loader->read('doc.djhtmsl')
+#2 /home/pnta/public_html/include/h2o/h2o/tags.php(239): H2o->loadSubTemplate('doc.djhtmsl', Array)
+#3 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''doc.djhtmsl'', Object(H2o_Parser), 0)
+#4 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''doc.djhtmsl'', Object(H2o_Parser), 0)
+#5 /home/pnta/public_html/include/h2o/h2o.php(106): H2o_Parser->parse()
+#6 /home/pnta/public_html/include/h2o/h2o/loaders.php(49): H2o->parse('{% extends 'doc...')
+#7 /home/pnta/public_html/include/h2o/h2o/loaders.php(94): H2o_File_Loader->read('/home/pnta/publ...')
+#8 /home/pnta/public_html/include/h2o/h2o.ph in /home/pnta/public_html/include/h2o/h2o/loaders.php on line 71
+[31-Dec-2012 01:43:22 UTC] PHP Fatal error:  Uncaught exception 'H2o_Error' with message 'endblock tag doesn't exist' in /home/pnta/public_html/include/h2o/h2o.php:148
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('endblock', 'navigation', Object(H2o_Parser), 129)
+#1 /home/pnta/public_html/include/h2o/h2o/tags.php(197): H2o_Parser->parse('endblock', 'endblock naviga...')
+#2 /home/pnta/public_html/include/h2o/h2o.php(151): Block_Tag->__construct('navigations', Object(H2o_Parser), 48)
+#3 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('block', 'navigations', Object(H2o_Parser), 48)
+#4 /home/pnta/public_html/include/h2o/h2o/tags.php(236): H2o_Parser->parse()
+#5 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''../../format/b...', Object(H2o_Parser), 0)
+#6 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''../../format/b...', Object(H2o_Parser), 0)
+#7 /home/pnta/public_html/include/h2o/h2o.php(106): H2o_Parser->parse()
+#8 /home/pnta/public in /home/pnta/public_html/include/h2o/h2o.php on line 148
+[31-Dec-2012 01:44:43 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'TemplateNotFound - Looked for template: doc.djhtmal' in /home/pnta/public_html/include/h2o/h2o/loaders.php:71
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/loaders.php(45): H2o_File_Loader->get_template_path(Array, 'doc.djhtmal')
+#1 /home/pnta/public_html/include/h2o/h2o.php(94): H2o_File_Loader->read('doc.djhtmal')
+#2 /home/pnta/public_html/include/h2o/h2o/tags.php(239): H2o->loadSubTemplate('doc.djhtmal', Array)
+#3 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''doc.djhtmal'', Object(H2o_Parser), 0)
+#4 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''doc.djhtmal'', Object(H2o_Parser), 0)
+#5 /home/pnta/public_html/include/h2o/h2o.php(106): H2o_Parser->parse()
+#6 /home/pnta/public_html/include/h2o/h2o/loaders.php(49): H2o->parse('{% extends 'doc...')
+#7 /home/pnta/public_html/include/h2o/h2o/loaders.php(94): H2o_File_Loader->read('/home/pnta/publ...')
+#8 /home/pnta/public_html/include/h2o/h2o.ph in /home/pnta/public_html/include/h2o/h2o/loaders.php on line 71
+[31-Dec-2012 02:35:53 UTC] PHP Fatal error:  Uncaught exception 'TemplateSyntaxError' with message 'Unclose tag, expecting endblock' in /home/pnta/public_html/include/h2o/h2o/parser.php:98
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/tags.php(197): H2o_Parser->parse('endblock', 'endblock Conten...')
+#1 /home/pnta/public_html/include/h2o/h2o.php(151): Block_Tag->__construct('Content', Object(H2o_Parser), 92)
+#2 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('block', 'Content', Object(H2o_Parser), 92)
+#3 /home/pnta/public_html/include/h2o/h2o/tags.php(236): H2o_Parser->parse()
+#4 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''doc.djhtml'', Object(H2o_Parser), 0)
+#5 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''doc.djhtml'', Object(H2o_Parser), 0)
+#6 /home/pnta/public_html/include/h2o/h2o.php(106): H2o_Parser->parse()
+#7 /home/pnta/public_html/include/h2o/h2o/loaders.php(49): H2o->parse('{% extends 'doc...')
+#8 /home/pnta/public_html/include/h2o/h2o/loaders.p in /home/pnta/public_html/include/h2o/h2o/parser.php on line 98
+[31-Dec-2012 02:43:00 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'TemplateNotFound - Looked for template: ../views/masters.djhtml' in /home/pnta/public_html/include/h2o/h2o/loaders.php:71
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/loaders.php(84): H2o_File_Loader->get_template_path(Array, '../views/master...')
+#1 /home/pnta/public_html/include/h2o/h2o.php(90): H2o_File_Loader->read_cache('../views/master...')
+#2 /home/pnta/public_html/include/h2o/h2o.php(85): H2o->loadTemplate('../views/master...')
+#3 /home/pnta/public_html/documentation/controllers/masters.php(5): H2o->__construct('../views/master...')
+#4 {main}
+  thrown in /home/pnta/public_html/include/h2o/h2o/loaders.php on line 71
+[31-Dec-2012 02:43:12 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'TemplateNotFound - Looked for template: ../views/masters.djhtml' in /home/pnta/public_html/include/h2o/h2o/loaders.php:71
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o/loaders.php(84): H2o_File_Loader->get_template_path(Array, '../views/master...')
+#1 /home/pnta/public_html/include/h2o/h2o.php(90): H2o_File_Loader->read_cache('../views/master...')
+#2 /home/pnta/public_html/include/h2o/h2o.php(85): H2o->loadTemplate('../views/master...')
+#3 /home/pnta/public_html/documentation/controllers/masters.php(5): H2o->__construct('../views/master...')
+#4 {main}
+  thrown in /home/pnta/public_html/include/h2o/h2o/loaders.php on line 71
+[31-Dec-2012 05:19:12 UTC] PHP Fatal error:  Uncaught exception 'TemplateSyntaxError' with message 'extends must be first in file' in /home/pnta/public_html/include/h2o/h2o/tags.php:228
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''manage.djhtml'', Object(H2o_Parser), 6627)
+#1 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''manage.djhtml'', Object(H2o_Parser), 6627)
+#2 /home/pnta/public_html/include/h2o/h2o/tags.php(197): H2o_Parser->parse('endblock', 'endblock Conten...')
+#3 /home/pnta/public_html/include/h2o/h2o.php(151): Block_Tag->__construct('Content', Object(H2o_Parser), 86)
+#4 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('block', 'Content', Object(H2o_Parser), 86)
+#5 /home/pnta/public_html/include/h2o/h2o/tags.php(236): H2o_Parser->parse()
+#6 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''doc.djhtml'', Object(H2o_Parser), 0)
+#7 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''doc. in /home/pnta/public_html/include/h2o/h2o/tags.php on line 228
+[31-Dec-2012 05:19:13 UTC] PHP Fatal error:  Uncaught exception 'TemplateSyntaxError' with message 'extends must be first in file' in /home/pnta/public_html/include/h2o/h2o/tags.php:228
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''manage.djhtml'', Object(H2o_Parser), 6627)
+#1 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''manage.djhtml'', Object(H2o_Parser), 6627)
+#2 /home/pnta/public_html/include/h2o/h2o/tags.php(197): H2o_Parser->parse('endblock', 'endblock Conten...')
+#3 /home/pnta/public_html/include/h2o/h2o.php(151): Block_Tag->__construct('Content', Object(H2o_Parser), 86)
+#4 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('block', 'Content', Object(H2o_Parser), 86)
+#5 /home/pnta/public_html/include/h2o/h2o/tags.php(236): H2o_Parser->parse()
+#6 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''doc.djhtml'', Object(H2o_Parser), 0)
+#7 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''doc. in /home/pnta/public_html/include/h2o/h2o/tags.php on line 228
+[31-Dec-2012 05:19:20 UTC] PHP Fatal error:  Uncaught exception 'TemplateSyntaxError' with message 'extends must be first in file' in /home/pnta/public_html/include/h2o/h2o/tags.php:228
+Stack trace:
+#0 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''manage.djhtml'', Object(H2o_Parser), 6627)
+#1 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''manage.djhtml'', Object(H2o_Parser), 6627)
+#2 /home/pnta/public_html/include/h2o/h2o/tags.php(197): H2o_Parser->parse('endblock', 'endblock Conten...')
+#3 /home/pnta/public_html/include/h2o/h2o.php(151): Block_Tag->__construct('Content', Object(H2o_Parser), 86)
+#4 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('block', 'Content', Object(H2o_Parser), 86)
+#5 /home/pnta/public_html/include/h2o/h2o/tags.php(236): H2o_Parser->parse()
+#6 /home/pnta/public_html/include/h2o/h2o.php(151): Extends_Tag->__construct(''doc.djhtml'', Object(H2o_Parser), 0)
+#7 /home/pnta/public_html/include/h2o/h2o/parser.php(89): H2o::createTag('extends', ''doc. in /home/pnta/public_html/include/h2o/h2o/tags.php on line 228

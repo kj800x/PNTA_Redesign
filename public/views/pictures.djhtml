@@ -1,0 +1,67 @@
+{% extends 'public.djhtml' %}
+{% block Title %}PNTA: Upload Pictures{% endblock Title%}
+{% block SpareJavascript %}
+    <script type="text/javascript">
+    function getFileName(s) { // e.g. enter c:\docs\myimage.jpg
+        var sp = s.lastIndexOf("\\");
+        var file = s.substring(sp+1);
+        return file;
+    }
+    </script>
+{% endblock SpareJavascript %}
+{% block Content %}
+    <div style="text-align:center;width:100%">
+        <span id="resultaddit"></span><br />
+        <span id="result"></span>
+    </div>
+    <h2>Upload your pictures</h2>
+    <h3>Currently Broken... (who's uploading pictures before/this early in the build season anyways)</h3>
+    <form action="./pictureUpload.php" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>
+                    File:
+                </td>
+                <td>
+                    <input onchange="document.getElementById('filename').value = getFileName(this.value);" type="file" name="file" id="file" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Title:
+                </td>
+                <td>
+                    <input type="text" id="filename" name="filename" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+    <br />
+    <script type="text/javascript">    
+var parts = window.location.search.substr(1).split("&");
+var _GET = {};
+for (var i = 0; i < parts.length; i++) {
+    var temp = parts[i].split("=");
+    _GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+}
+if(_GET["Error"])
+{
+    document.getElementById("result").innerHTML = "Error! Code:"+_GET["Error"];
+    document.getElementById("result").style.color = "yellow";
+    document.getElementById("result").style.background = "red";
+}
+if(_GET["Renamed"] == 1)
+{
+    document.getElementById("resultaddit").innerHTML = "File Renamed! There was already a file with that name. It was renamed to <span style='color:orange'>"+_GET["Name"]+"</span>";
+    document.getElementById("resultaddit").style.color = "yellow";
+    document.getElementById("resultaddit").style.background = "green";
+}
+if(_GET["Uploaded"] == 1)
+{
+    document.getElementById("result").innerHTML = "Upload Successful!";
+    document.getElementById("result").style.color = "green";
+    document.getElementById("result").style.background = "yellow";
+}
+    </script>
+{% endblock Content %}

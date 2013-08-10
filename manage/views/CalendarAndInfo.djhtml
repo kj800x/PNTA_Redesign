@@ -1,0 +1,9 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}PNTA: Calendar And Info{% endblock Title%}
+{% block Content %}
+    <h1> Calendar Sign In Information </h1>
+    <p> Link: <a href="http://www.google.com/calendar">http://www.google.com/calendar</a></p>
+    <p> Username: pnta@pnta.org</p>
+    <p> Password: noitaluger</p>
+    <p> Feel free to give your personal google account permissions so that you don't have to sign in with the PNTA account to manage events. </p>
+{% endblock %}

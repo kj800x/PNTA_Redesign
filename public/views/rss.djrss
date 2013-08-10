@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  	<atom:link href="http://pnta.org/rss.rss" rel="self" type="application/rss+xml" />
+    <title>
+      PNTA
+    </title>
+    <link>
+      http://pnta.org/
+    </link>
+    <description>
+      A robotics team participating in the US FIRST robotics events.
+    </description>
+    <language>
+      en
+    </language>
+    {% for article in News %}
+    <item>
+      <title>
+        {{article.title}}
+      </title>
+      <link>
+        http://pnta.org/permanews.php?id={{article.id}}
+      </link>
+      <description>
+        {{article.content}}
+      </description>
+      <pubDate>
+        {{article.alteredpubdate}}
+      </pubDate>
+      <guid isPermaLink="false">
+        id=http://pnta.org/permanews.php?id={{article.id}}
+      </guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

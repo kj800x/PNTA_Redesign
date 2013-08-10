@@ -1,0 +1,81 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}Manage: PNTA.org{% endblock Title%}
+{% block Content %}
+  <form onsubmit="document.getElementById('addcell').value = document.getElementById('addcell').value.replace(/\s/gi, '').replace(/-/gi, '').replace(/\)/gi, '').replace(/\(/gi, '');document.getElementById('addhome').value = document.getElementById('addhome').value.replace(/\s/gi, '').replace(/-/gi, '').replace(/\)/gi, '').replace(/\(/gi, '');" action="./TMFunctions.php" method="POST">
+    <input type="hidden" name="action" value="E" />
+    <input type="hidden" name="id" value="{{member.id}}" />
+    <table>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          <input type="text" name="name" value="{{member.name}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Verified: 
+        </td>
+        <td>
+          <input type="checkbox" name="verified" value="1" {% if member.verified %} checked {% endif %}>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Cell Phone:
+        </td>
+        <td>
+          <input type="text" name="cellphone" id="addcell" value="{{member.cellphone}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Home Phone:
+        </td>
+        <td>
+          <input type="text" name="homephone" id="addhome" value="{{member.homephone}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          House Address:
+        </td>
+        <td>
+          <input type="text" name="houseaddress" value="{{member.houseaddress}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Yog:
+        </td>
+        <td>
+          <input type="text" name="yog" id="YOG" {% if member.yog == 0000 %}DISABLED {% endif %}value="{{member.yog}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Email:
+        </td>
+        <td>
+          <input type="text" name="email" value="{{member.email}}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Type:
+        </td>
+        <td>
+          <select onchange="if (this.value != 'Student' && this.value != 'Alumni'){document.getElementById('YOG').disabled = true;document.getElementById('YOG').value = '0000'}else{document.getElementById('YOG').disabled = false;document.getElementById('YOG').value = ''}" name="type">
+            <option value="Student" {% if member.type == 'Student' %}SELECTED{% endif %}>Student</option>
+            <option value="Parent"  {% if member.type == 'Parent' %}SELECTED{% endif %}>Parent</option>
+            <option value="Teacher" {% if member.type == 'Teacher' %}SELECTED{% endif %}>Teacher</option>
+            <option value="Other"   {% if member.type == 'Other' %}SELECTED{% endif %}>Other</option>
+            <option value="Alumni"  {% if member.type == 'Alumni' %}SELECTED{% endif %}>Alumni</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Save" />
+  </form>
+{% endblock %}

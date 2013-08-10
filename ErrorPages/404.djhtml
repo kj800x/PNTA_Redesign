@@ -1,0 +1,12 @@
+{% extends 'error.djhtml' %}
+{% block Title %}404 - File Not Found{% endblock Title%}
+{% block Content %}
+	<h1>404</h1>
+	<h1>Four - Oh - Four</h1>
+	<h1>File not found!</h1>
+	<h4>Oh No!</h4>
+	<img src="http://pnta.org/webimages/jenafuhspinsfaster.gif" />
+	<h1>&nbsp;</h1>
+	<h3>Check your URL, is there a typo in it?</h3>
+	<h3>Maybe it got moved to our file server, you can try to find it on <a href="http://files.pnta.org/">here</a>!</h3>
+{% endblock Content %}

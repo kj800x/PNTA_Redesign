@@ -1,0 +1,48 @@
+{% extends 'doc.djhtml' %}
+{% block Title %}[PNTA_Doc]: Home{% endblock Title%}
+{% block Content %}
+    <div id="TOC"></div>
+        <h3> Documentation Section </h3>
+          <h4> Distinction Between Web Developers and Web Masters </h4>
+            <p> In order to get anything out of this documentation you need to make a decision. Are you a Web Developer or a Web Master? </p>
+            <h5> Web Masters (Admins) (Managers) (Content-Guys) </h5>
+              <p> ... deal with the content that is displayed to those viewing the website. You need a few skills (or need to learn them) </p>
+              <ul>
+                <li> Know a little HTML </li>
+                <li> Have enough patience to read through my ramblings in the documentation </li>
+              </ul>
+              <p> You also need to follow some rules:
+              <ul>
+                <li> Whatever you do, <b>don't embarrass us (or anyone who sponsors us (cough<i>entergy</i>cough)).</b> This is very important. You have been trusted with this website. If there is anything <i>unflattering</i> on this, you better remove it, and make sure it doesn't get back on. </li>
+                <li> If we have no developers (Check the contacts page, link at the bottom right of every page), somebody needs to make database backups every September. <a href="/documentation/devel.php#backup">You can click here to read the instructions for how to do that</a> </li>
+              </ul>
+            <h5> Web Developers </h5>
+              <p> ... deal with the actual code that is transfered across the internet when someone requests this page. You need to have certain skills (or learn them) </p>
+              <ul>
+                <li> Know about FTP </li>
+                <li> Know HTML </li>
+                <li> Have enough patience to read through my ramblings in the documentation </li>
+                <li> Know a little CSS </li>
+                <li> Know a little Javascript </li>
+                <li> Know MySQL </li>
+                <li> Know some PHP (Although I don't like PHP so I use a nice framework on top of it, called <a href="http://www.h2o-template.org/">H2O</a>) </li>
+                <li> It helps if you know a little Django because H2O borrows lots of ideas from Django </li>
+                <li> It helps if you know a little Python because Django is designed to be made on Python, so it spirals up and H2O is very pythonic. (And you haven't lived yet if you don't know Python)
+                <li> It helps if you know a little about *nix because this is hosted on a linux server, you might need it... </li>
+              </ul>
+              <p> You also need to follow some rules:
+              <ul>
+                <li> Whatever you do, <b>don't embarrass us (or anyone who sponsors us (cough<i>entergy</i>cough)).</b> This applies more to the web-masters, because they are in charge of content, but you still should keep it in mind. This is a high-school program's website, keep that in mind and keep things appropriate. Mr. Bastoni reserves the right to take the website away from anyone. </li>
+                <li> Try to run any major changes through Mr. Bastoni. That's better than realizing, after coding it, that your new addition could allow irresponsible people to post bad stuff on the website. </li>
+                <li> Every September create a database backup (I go into more detail deeper in the documentation). </li>
+              </ul>
+              <p> Also, if you make any changes to the website, it's your job to keep this documentation (both of the documentations) up to date. It's not <i>that</i> bad to do... <small>(I lied, I hate documentation)</small></p>
+          <h4> Links to go deeper! </h4>
+            <p><a href="/documentation/masters.php"> Web Masters </a></p>
+            <p><a href="/documentation/devel.php"> Web Developers </a></p>
+    <script type="text/javascript">
+      document.getElementById("TOC").appendChild(createTOC());
+      showhideTOC();
+      showhideTOC();
+    </script>
+{% endblock Content %}

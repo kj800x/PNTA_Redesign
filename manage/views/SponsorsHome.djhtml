@@ -1,0 +1,63 @@
+{% extends 'manage.djhtml' %}
+{% block Title %}PNTA: Sponsors{% endblock Title%}
+{% block Content %}
+<table style="width:100%" border="1">
+      <tr style="width:100%">
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          URL
+        </th>
+        <th>
+          Logo
+        </th>
+        <th>
+          Order In List
+        </th>
+        <th style="width:20px;">
+          Edit
+        </th>
+        <th style="width:20px;">
+          Delete
+        </th>
+      </tr>
+      <tr style="height: 120px;">
+        <form action="./SponsorsFunctions.php" method="Post">
+          <th>
+            <input style="height:100%; width:100%" type="text" name="name" />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="description" />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="url" />
+          </th>
+          <th>
+            <input style="height:100%; width:100%" type="text" name="logo" />
+          </th>
+          <th colspan="2">
+            <input style="height:100%; width:100%" type="text" name="order_in_list" />
+          </th>
+          <th style="width:20px;">
+            <input type="hidden" name="action" value="N" />
+            <input type="submit" value="Post!" />
+          </th>
+        </form>
+      </tr>
+    {% for sponsor in Sponsors %}
+      <tr>
+        <td>{{sponsor.name}}</td>
+        <td>{{sponsor.description}}</td>
+        <td><a class="noprintlink" href="{{sponsor.url}}">{{sponsor.url}}</a></td>
+        <td> <img src="{{sponsor.logo}}" /></td>
+        <td>{{sponsor.order_in_list}}</td>
+        <td><form action="./SponsorsEdit.php"      method="get" >                                               <input type="hidden" name="id" value="{{sponsor.id}}"><input type="submit" value="Edit!">  </form></td>
+        <td><form action="./SponsorsFunctions.php" method="post"><input type="hidden" name="action" value="D" /><input type="hidden" name="id" value="{{sponsor.id}}"><input type="submit" value="Delete!"></form></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
