@@ -1,5 +1,5 @@
 #container {
-    width:90%;
+    width:90%; /* I just realized now that you're using a percent layout, and therefore I love and hate you at the same time cus' I could never get them right ~Kevin */
     margin:0 auto;
     padding:5% auto 5% 10px; /*top right bottom left*/ /*I love you pasta (I still do this in my head) ~Kevin~*/
     margin-bottom:20px;
@@ -12,7 +12,7 @@
     border-top:0px;  
 }
 
-.content {
+.contentnode {
     margin:0 auto;
     padding:25px;
     float:center;

@@ -1,4 +1,10 @@
 {% autoescape off %}<!DOCTYPE html>
+<!-- TODO:
+
+Pasta: Add a margin-top to class "contentnode" in css, something like 10px.
+
+-->
+
 <html>
 
 	<head>
@@ -47,18 +53,20 @@
 		<div id="container">
 			<br />
 
-			{% block content %}
-			<div class="content">
-				<p> Yadah, Yadah, Yadah. Default content etc. </p>
+			<div id="content">
+				{% block content %}
+				<div class="contentnode">
+					<p> Yadah, Yadah, Yadah. Default content etc. </p>
+				</div>
+				<div class="contentnode">
+					<p> Some content and shit! </p>
+				</div>
+				{% endblock content %}
 			</div>
-			<div class="content">
-				<p> Some content and shit! </p>
-			</div>
-			{% endblock content %}
 
 			<br />
 			<div id="footer">
-				Insert your footer shit right here.
+				<span class="noprint">PNTA: <a href="http://pnta.org/contacts.php">contact</a>. </span> © 2012 PNTA.org 
 			</div>
 			<br />
 
