@@ -1,6 +1,6 @@
 # PNTA_Redesign
 
-![screenshot](http://i.imgur.com/0yJZFGv.png)
+![screenshot](http://i.imgur.com/8GR7gQE.png)
 
 This is a copy of the PNTA.org website source code.
 I'm sharing it now that the website has gone offline. I wrote all of the code myself (excepting libraries of course) in my freshman year of high school.
